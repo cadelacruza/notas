@@ -14,7 +14,7 @@ model Note {
   title      String?   @db.VarChar(40)
   body       String?   @db.VarChar
   created_at DateTime? @default(now()) @db.Timestamptz(6)
-  edited_at  DateTime? @db.Timestamptz(6)
+  edited_at  DateTime? @default(now()) @db.Timestamptz(6)
   author     Int?
   User       User?     @relation(fields: [author], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }

@@ -3,7 +3,8 @@ const {PrismaSessionStore} = require('@quixo3/prisma-session-store');
 const sessionConfig = {
     cookie: {
         maxAge: 7 * 24 * 60 * 60 * 1000,
-        sameSite: 'strict'
+        sameSite: 'strict',
+        secure: true
     },
     secret: process.env.SESSION_SECRET,
     resave: false,

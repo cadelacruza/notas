@@ -82,7 +82,7 @@ function showUpdateForm(currentDialog,currentNote){
 
 async function handleNoteDelete(noteId){
     if(window.confirm("Do you want to delete this note? This action can't be undone")){
-        const res = await fetch(`http://localhost:3000/notes/${noteId}`, {
+        const res = await fetch(`https://notas.kdela.repl.co/notes/${noteId}`, {
             method: 'DELETE', 
             mode:'same-origin',
             credentials: 'same-origin',

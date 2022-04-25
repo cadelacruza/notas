@@ -24,8 +24,6 @@ model User {
   email        String       @unique @db.VarChar
   passwordhash String       @db.VarChar
   registeredat DateTime?    @default(now()) @db.Timestamptz(6)
-  confirmedat  DateTime?    @db.Timestamptz(6)
-  emails       emailstatus? @default(pending)
   Note         Note[]
 }
 
@@ -36,12 +34,3 @@ model Session {
   expiresAt DateTime
 }
 
-enum emailstatus {
-  pending
-  confirmed
-}
-
-enum userstatus {
-  pending
-  active
-}

@@ -92,7 +92,7 @@ main{
 dialog{
     margin: auto;
     width: 350px;
-    height: 320px;
+    height: fit-content;
     padding: 10px 30px;
 }
 

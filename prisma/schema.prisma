@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
+
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Note {
+  id         Int       @id @default(autoincrement())
+  title      String?   @db.VarChar(40)
+  body       String?   @db.VarChar
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  edited_at  DateTime? @db.Timestamptz(6)
+  author     Int?
+  User       User?     @relation(fields: [author], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model User {
+  id           Int          @id @default(autoincrement())
+  email        String       @unique @db.VarChar
+  passwordhash String       @db.VarChar
+  registeredat DateTime?    @default(now()) @db.Timestamptz(6)
+  confirmedat  DateTime?    @db.Timestamptz(6)
+  emails       emailstatus? @default(pending)
+  Note         Note[]
+}
+
+model Session {
+  id        String   @id
+  sid       String   @unique
+  data      String
+  expiresAt DateTime
+}
+
+enum emailstatus {
+  pending
+  confirmed
+}
+
+enum userstatus {
+  pending
+  active
+}

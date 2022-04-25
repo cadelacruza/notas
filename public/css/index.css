@@ -1,0 +1,200 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #F4F1DE;
+}
+
+nav{
+    margin: 5px;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 5px;
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px 10px;
+}
+
+#search-input{
+    border: none;
+    width: 400px;
+}
+
+#search-input:focus{
+    outline: none;
+}
+
+main{
+    border: none;
+}
+
+.top-container{
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.categories-container{
+    display: flex;
+    
+}
+
+.categories-container > p{
+    margin: 0 10px;
+}
+
+.createNote-container{
+    margin-right: 10px;
+}
+
+#notas{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nota{
+    border-radius: 6px;
+    background-color: white;
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nota > p{
+    margin: 5px 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+}
+
+.search, .logout-container{
+    display: flex;
+    align-items: center;
+}
+
+
+.lupa{
+    width: 25px;
+    height: 25px;
+}
+
+dialog{
+    margin: auto;
+    width: 350px;
+    height: 320px;
+    padding: 10px 30px;
+}
+
+.date-hidden{
+    background-color: aqua;
+    visibility: hidden;
+    height: 0;
+}
+
+.date-container{
+    display: flex;
+}
+
+button{
+    border: none;
+    border-radius: 5px;
+    padding: 0 5px;
+}
+
+button:hover{
+    filter: brightness(90%);
+}
+
+button:focus{
+    outline: none;
+}
+
+#logout-input{
+    border: none;
+    border-radius: 5px;
+    background-color: #F2CC8F;
+    height: 30px;
+    width: 50px;
+}
+
+#logout-input:hover{
+    filter: brightness(90%);
+}
+
+.btns-create{
+    background-color: #3D405B;
+    color: rgba(255, 255, 255, 0.938);
+    height: 30px;
+    width: 80px;
+    text-align: center;
+}
+
+.update-btns{
+    background-color: #81B29A;
+    height: 20px;
+    width: 60px;
+}
+
+.delete-btns{
+    background-color: #E07A5F;
+    height: 20px;
+    width: 60px;
+}
+
+#empty{
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body-input{
+    resize: none;
+    padding: 5px;
+}
+
+.input-note{
+    width: 200px;
+}
+
+.label-input{
+    display: block;
+}
+
+
+.form-in-modal-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#create-modal-container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.note-container-inside-modal{
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.btns-container{
+
+    display: flex;
+    justify-content: space-between;
+}

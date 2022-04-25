@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <nav>
+        <div class="search">
+            <div class="lupa">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+            </div>
+
+            <div>
+                <form action="/notes" method="get">
+                    <input type="text" name="search" placeholder="Search" id="search-input">
+                    
+                </form>
+            </div>
+        </div>
+        <button id="btn-create" class="btns-create">create note</button>
+        <div class="logout-container">
+            <form action="/auth/logout" method="post">
+                <input type="submit" value="Logout" id="logout-input">
+            </form>
+        </div>
+        
+    </nav>
+
+    <main>
+        <% if(notes.length === 0 && search) {%>
+            <div id="empty">
+                <p class="placeholder-empty">Nothing found</p>
+            </div>
+        <% }else if (notes.length === 0 ) {%>
+            <div id="empty">
+                <p class="placeholder-empty">You don't have any notes, create one to see it here...</p>
+            </div>
+        <% }%>
+        <div id="notas">
+            <% for(let note of notes){ %>
+                
+                    <div class="nota" id="<%= note.id %>">
+                        <h2><%=note.title%></h2>
+                        <p><%= note.body%></p>
+                        <p><%= note.edited_at.toLocaleDateString('en-US',{day: 'numeric' ,month: 'short',  year: 'numeric'})%></p>
+                        
+                    </div>
+            <% }%>
+        </div>
+    </main>
+
+
+
+    <dialog id="note-modal" >
+    </dialog>
+
+    <dialog id="create-note-modal">
+        <div class="form-in-modal-container">
+            <h2>Create a new note</h2>
+            <form action="/notes" method="post">
+                <div>
+                    <label for="title" class="label-input">Title:</label>
+                    <input type="text" name="title" id="title-input" class="input-note" required>
+                </div>
+                <div>
+                    <label for="body" class="label-input">Body:</label>
+                    <textarea name="body" cols="30" rows="10" required  class="input-note body-input"></textarea>
+                </div>
+                <div id="create-modal-container">
+                    <button class="btns-create">Create</button>
+                </div>
+            </form>
+        </div>
+       
+    </dialog>
+    <script src="/js/index.js"></script>
+</body>
+</html>

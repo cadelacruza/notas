@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New note</title>
+</head>
+<body>
+    <h1>Create a new note, temporary page</h1>
+    <form action="/notes" method="post">
+        <div>
+            <label for="title">Title</label>
+            <input type="text" placeholder="Title" name="title">
+        </div>
+        <div>
+            <label for="body">Note:</label>
+            <textarea name="body"  cols="30" rows="10" placeholder="Note content..."></textarea>
+        </div>
+        <div>
+            <p>Media: Will alow image upload to AWS S3, To be done</p>
+        </div>
+        <div>
+            <button>Create</button>
+        </div>
+    </form>
+</body>
+</html>
